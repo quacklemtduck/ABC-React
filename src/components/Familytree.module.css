@@ -1,4 +1,21 @@
 .familyTreeContainer{
     border: 1px solid black;
     background-color: white;
+    display: flex;
+}
+
+.treeSection{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.treeParent{
+    display: flex;
+    justify-content: center;
+}
+
+.treeChild{
+    display: flex;
+    justify-content: space-around;
 }
