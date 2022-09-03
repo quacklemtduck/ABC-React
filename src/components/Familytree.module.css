@@ -1,7 +1,9 @@
 .familyTreeContainer{
-    border: 1px solid black;
+    border: 2px inset rgb(141, 141, 141);
+    border-radius: 4px;
     background-color: white;
     display: flex;
+    padding: 10px;
 }
 
 .treeSection{
@@ -18,4 +20,9 @@
 .treeChild{
     display: flex;
     justify-content: space-around;
+}
+
+.childContainer{
+    display: flex;
+    flex-direction: column;
 }

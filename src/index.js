@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Familytree from "./components/Familytree";
+import { PopupInfoOverlay } from "./components/PopupInfo";
 import "./index.css";
 
 /* Family tree for Henning */
@@ -12,7 +13,7 @@ const bente = {
   Age: 46,
   ShoeSize: 37,
   Gender: "F",
-  Children: [lars],
+  Children: [lars, andreas],
 };
 const viggo = {
   Name: "Viggo",
@@ -38,10 +39,11 @@ class App extends React.Component {
     /*
       During the solution of the tasks, please consider handling crappy data.
     */
-    lars.Children = [henning];
+    //lars.Children = [henning];
 
     return (
       <div className="App">
+      <PopupInfoOverlay />
         <div className="task-section">
           <div className="content">
             <h1>

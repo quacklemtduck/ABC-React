@@ -21,7 +21,21 @@ export default function Familytree(props){
                     <PersonBubble person={member}/>
                 </div>
                 <div className={styles.treeChild}>
-                    {member.Children.map((c) => getTree(c))}
+                    {member.Children.map((c, i) => {
+                        let direction = (i % 2 === 0) ? "left" : "right";
+                        let flexDirection = (i % 2 === 0) ? "flex-end" : "normal";
+                        let singleLine = (member.Children.length === 1) ? "1px" : "50%";
+                        if (member.Children.length === 1) {
+                            flexDirection = "center"
+                        }
+                        return (<div key={i} className={styles.childContainer} style={{width:"100%", alignItems: flexDirection}}>
+                        
+                        <div style={{background: `linear-gradient(to top ${direction}, #fff calc(50% - 1px), #aaa, #fff calc(50% + 1px) )`, width: singleLine, height: "50px"}}></div>
+
+                        {getTree(c)}
+                        
+                        </div>)
+                        })}
                 </div>
             </div>
         )
