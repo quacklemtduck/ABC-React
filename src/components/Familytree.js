@@ -9,7 +9,7 @@ function compareAges(a, b){
 
 
 export default function Familytree(props){
-    let members = props.members.sort(compareAges);
+    let members = [...props.members].sort(compareAges);
 
 
     function getTree(member){

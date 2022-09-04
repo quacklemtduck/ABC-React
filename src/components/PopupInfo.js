@@ -29,8 +29,6 @@ export function PopupInfoOverlay() {
     </div>
   );
 
-  console.log(showPopup.value);
-
   return (
     <div>
       {showPopup ? (

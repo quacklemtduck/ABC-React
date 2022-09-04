@@ -56,7 +56,7 @@ class App extends React.Component {
         <div className="task-section">
           <div className="content">
             <h1>Visualize the ages of the family in a bar chart</h1>
-            <BarChart />
+            <BarChart members={members} />
           </div>
         </div>
         <div className="task-section">

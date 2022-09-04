@@ -10,4 +10,19 @@
 
 .container h2 {
     text-align: center;
+    width: 100%;
+}
+
+.titleBar{
+    display: flex;
+    justify-content: flex-end;
+    height: 60px;
+}
+
+.selector{
+    margin-top: 15px;
+}
+
+.chart{
+    border: 1px solid gray;
 }
