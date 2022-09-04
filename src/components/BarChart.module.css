@@ -1,0 +1,13 @@
+.container{
+    border: 2px inset rgb(141, 141, 141);
+    border-radius: 4px;
+    background-color: white;
+    display: flex;
+    padding: 10px;
+
+    flex-direction: column;
+}
+
+.container h2 {
+    text-align: center;
+}

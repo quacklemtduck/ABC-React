@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import BarChart from "./components/BarChart";
 import Familytree from "./components/Familytree";
 import { PopupInfoOverlay } from "./components/PopupInfo";
 import "./index.css";
@@ -55,6 +56,7 @@ class App extends React.Component {
         <div className="task-section">
           <div className="content">
             <h1>Visualize the ages of the family in a bar chart</h1>
+            <BarChart />
           </div>
         </div>
         <div className="task-section">
