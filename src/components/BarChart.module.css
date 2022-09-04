@@ -25,8 +25,13 @@
 
 .chart{
     border: 1px solid gray;
+    overflow: visible;
 }
 
-.bar{
-    
+.bar:hover .barInfo{
+    display: inline;
+}
+
+.bar .barInfo{
+    display: none;
 }

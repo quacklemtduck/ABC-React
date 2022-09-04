@@ -97,8 +97,23 @@ export default function BarChart(props) {
           {rows}
 
           {members.map((m, i) => {
+              let middle = (60 + i * (barWidth + 20)) + barWidth/2
+              let bottomInfo = (height - 155 - (m.Age / maxAge) * barHeight) + 40
             return (
               <g className={styles.bar}>
+                <g className={styles.barInfo}>
+                  <rect
+                    x={60 + i * (barWidth + 20)}
+                    y={height - 155 - (m.Age / maxAge) * barHeight}
+                    width={barWidth}
+                    height={40}
+                    style={{ fill: "#FFD8A9" }}
+                    rx={5}
+                  />
+                  <path style={{ fill: "#FFD8A9" }} d={`M ${middle - 12} ${bottomInfo - 2} L ${middle} ${bottomInfo + 15} L ${middle + 12} ${bottomInfo - 2}`} />
+                  <text className={styles.text}
+                  textAnchor="middle" x={middle} y={bottomInfo - 12}>{m.Age}</text>
+                </g>
                 <rect
                   style={{ fill: "#E38B29" }}
                   width={barWidth}
@@ -106,7 +121,14 @@ export default function BarChart(props) {
                   x={60 + i * (barWidth + 20)}
                   y={height - 100 - (m.Age / maxAge) * barHeight}
                 />
-                <text className={styles.text} textAnchor="middle" x={60 + i * (barWidth + 20) + (barWidth / 2)} y={height - 80}>{m.Name}</text>
+                <text
+                  className={styles.text}
+                  textAnchor="middle"
+                  x={60 + i * (barWidth + 20) + barWidth / 2}
+                  y={height - 80}
+                >
+                  {m.Name}
+                </text>
               </g>
             );
           })}
