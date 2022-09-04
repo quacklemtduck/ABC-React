@@ -6,30 +6,52 @@ export default function BarChart(props) {
   const height = props.height === undefined ? 400 : props.height;
 
   const [sortBy, setSortBy] = useState("ascending");
-  let [members, setMembers] = useState([...props.members].sort((a, b) => a.Age - b.Age));
+  let [members, setMembers] = useState(
+    [...props.members].sort((a, b) => a.Age - b.Age)
+  );
 
   var maxAge = 0;
-  members.forEach(m => {
-      maxAge = Math.max(maxAge, m.Age)
+  members.forEach((m) => {
+    maxAge = Math.max(maxAge, m.Age);
   });
 
   const barHeight = height - 20 - 100;
-  const barWidth = ((width - 60 - 30) / (members.length)) - 20
+  const barWidth = (width - 60 - 30) / members.length - 20;
 
   function handleChange(e) {
     setSortBy(e.target.value);
 
-    if(e.target.value === "ascending"){
-        setMembers(prev => {
-            return prev.sort((a, b) => a.Age - b.Age)
-        })
-    }else if(e.target.value === "descending"){
-        setMembers(prev => {
-            return prev.sort((a, b) => b.Age - a.Age)
-        })
+    if (e.target.value === "ascending") {
+      setMembers((prev) => {
+        return prev.sort((a, b) => a.Age - b.Age);
+      });
+    } else if (e.target.value === "descending") {
+      setMembers((prev) => {
+        return prev.sort((a, b) => b.Age - a.Age);
+      });
     }
   }
-  
+
+  const numRows = Math.floor(maxAge / 10);
+  const rows = [];
+  for (let i = 1; i <= numRows; i++) {
+    let rowY = height - 100 - ((i * 10) / maxAge) * barHeight;
+    rows.push(
+      <g>
+        <text className={styles.text} textAnchor="end" x={38} y={rowY}>
+          {i * 10}
+        </text>
+        <line
+          strokeWidth={1}
+          stroke="#b3b3b3"
+          x1={40}
+          x2={width - 30}
+          y1={rowY}
+          y2={rowY}
+        />
+      </g>
+    );
+  }
 
   return (
     <div style={{ width: width, height: height }} className={styles.container}>
@@ -43,15 +65,60 @@ export default function BarChart(props) {
           </select>
         </div>
       </div>
-      <div >
-            <svg className={styles.chart} width={width} height={height-60} xmlns="http://www.w3.org/2000/svg">
-            
-                {members.map((m, i) => {
-                    return (<rect style={{fill: "#E38B29"}} width={barWidth} height={m.Age / maxAge * barHeight} x={60 + (i * (barWidth + 20))} y={height - 100 - (m.Age / maxAge * barHeight)}/>)
-                }) }
-                <line x1={40} y1={20} x2={40} y2={height - 100} stroke="black"/>
-                <line x1={40} y1={height - 100} x2={width - 30} y2={height - 100} stroke="black"/>
-            </svg>
+      <div>
+        <svg
+          className={styles.chart}
+          width={width}
+          height={height - 60}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <text
+            className={styles.text}
+            textAnchor="end"
+            x={38}
+            y={height - 100}
+          >
+            {0}
+          </text>
+          <g>
+            <text className={styles.text} textAnchor="end" x={38} y={20}>
+              {maxAge}
+            </text>
+            <line
+              strokeWidth={1}
+              x1={40}
+              y1={20}
+              x2={width - 30}
+              y2={20}
+              stroke="#b3b3b3"
+            />
+          </g>
+
+          {rows}
+
+          {members.map((m, i) => {
+            return (
+              <g className={styles.bar}>
+                <rect
+                  style={{ fill: "#E38B29" }}
+                  width={barWidth}
+                  height={(m.Age / maxAge) * barHeight}
+                  x={60 + i * (barWidth + 20)}
+                  y={height - 100 - (m.Age / maxAge) * barHeight}
+                />
+                <text className={styles.text} textAnchor="middle" x={60 + i * (barWidth + 20) + (barWidth / 2)} y={height - 80}>{m.Name}</text>
+              </g>
+            );
+          })}
+          <line x1={40} y1={20} x2={40} y2={height - 100} stroke="black" />
+          <line
+            x1={40}
+            y1={height - 100}
+            x2={width - 30}
+            y2={height - 100}
+            stroke="black"
+          />
+        </svg>
       </div>
     </div>
   );
