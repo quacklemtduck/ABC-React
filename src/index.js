@@ -1,14 +1,21 @@
 import React from "react";
-import {createRoot} from 'react-dom/client'
+import { createRoot } from "react-dom/client";
 import BarChart from "./components/BarChart";
 import Familytree from "./components/Familytree";
 import { PopupInfoOverlay } from "./components/PopupInfo";
+import ShoeSizes from "./components/ShoeSizes";
 import "./index.css";
 
 /* Family tree for Henning */
 const lars = { Name: "Lars", Age: 20, ShoeSize: 46, Gender: "M", Children: [] };
 const iben = { Name: "Iben", Age: 26, ShoeSize: 38, Gender: "F", Children: [] };
-const andreas = { Name: "Andreas", Age: 22, ShoeSize: 42, Gender: "M", Children: [] };
+const andreas = {
+  Name: "Andreas",
+  Age: 22,
+  ShoeSize: 42,
+  Gender: "M",
+  Children: [],
+};
 const bente = {
   Name: "Bente",
   Age: 46,
@@ -44,7 +51,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
-      <PopupInfoOverlay />
+        <PopupInfoOverlay />
         <div className="task-section">
           <div className="content">
             <h1>
@@ -62,6 +69,7 @@ class App extends React.Component {
         <div className="task-section">
           <div className="content">
             <h1>Calculate and show the average shoe size per gender</h1>
+            <ShoeSizes members={members}/>
           </div>
         </div>
       </div>

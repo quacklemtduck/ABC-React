@@ -1,0 +1,44 @@
+.container{
+    border: 2px inset rgb(141, 141, 141);
+    border-radius: 4px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.genderSelector{
+    display: flex;
+}
+
+.toggle{
+    border: none;
+    font-size: 20px;
+    width: 100px;
+    background-color: #FDEEDC;
+    cursor: pointer;
+}
+
+.toggle:hover{
+    background-color: #FFD8A9;
+}
+
+.toggleLeft{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.toggleRight{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.selected{
+    background-color: #F1A661;
+    cursor:default
+    
+}
+
+.selected:hover{
+    background-color: #F1A661;
+}
