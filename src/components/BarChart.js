@@ -37,7 +37,7 @@ export default function BarChart(props) {
   for (let i = 1; i <= numRows; i++) {
     let rowY = height - 100 - ((i * 10) / maxAge) * barHeight;
     rows.push(
-      <g>
+      <g key={i * 10}>
         <text className={styles.text} textAnchor="end" x={38} y={rowY}>
           {i * 10}
         </text>
@@ -100,7 +100,7 @@ export default function BarChart(props) {
               let middle = (60 + i * (barWidth + 20)) + barWidth/2
               let bottomInfo = (height - 155 - (m.Age / maxAge) * barHeight) + 40
             return (
-              <g className={styles.bar}>
+              <g key={m.Name} className={styles.bar}>
                 <g className={styles.barInfo}>
                   <rect
                     x={60 + i * (barWidth + 20)}
