@@ -47,14 +47,14 @@ export default function Familytree(props){
             </div>
         )
         }else{
-            console.error(`Encountered child named ${member.Name} that has either already been rendered or is not part of the tree, ignoring`)
+            console.error(`Encountered child named ${member.Name} that has either already been rendered or is not part of the tree`)
             return (
                 <div className={styles.treeSection}>
-                <div className={styles.treeParent}>
+                    <div className={styles.treeParent}>
                        <button onClick={() => ShowPopup(ErrorMessage())} className={styles.errorBubble}>
                             <p className={styles.letter}>!</p>
                        </button> 
-                       </div>
+                    </div>
                 </div>
             )
         }
@@ -69,7 +69,7 @@ export default function Familytree(props){
 
     return(
     <div className={styles.familyTreeContainer}>
-        {memberorbs.map((m) => m)}
+        {memberorbs}
     </div>
     )
 }

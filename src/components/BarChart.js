@@ -15,7 +15,7 @@ export default function BarChart(props) {
     maxAge = Math.max(maxAge, m.Age);
   });
 
-  const barHeight = height - 20 - 100;
+  const barMaxHeight = height - 20 - 100;
   const barWidth = (width - 60 - 30) / members.length - 20;
 
   function handleChange(e) {
@@ -32,10 +32,11 @@ export default function BarChart(props) {
     }
   }
 
+  //Creating the row lines
   const numRows = Math.floor(maxAge / 10);
   const rows = [];
   for (let i = 1; i <= numRows; i++) {
-    let rowY = height - 100 - ((i * 10) / maxAge) * barHeight;
+    let rowY = height - 100 - ((i * 10) / maxAge) * barMaxHeight;
     rows.push(
       <g key={i * 10}>
         <text className={styles.text} textAnchor="end" x={38} y={rowY}>
@@ -98,13 +99,13 @@ export default function BarChart(props) {
 
           {members.map((m, i) => {
               let middle = (60 + i * (barWidth + 20)) + barWidth/2
-              let bottomInfo = (height - 155 - (m.Age / maxAge) * barHeight) + 40
+              let bottomInfo = (height - 155 - (m.Age / maxAge) * barMaxHeight) + 40
             return (
               <g key={m.Name} className={styles.bar}>
                 <g className={styles.barInfo}>
                   <rect
                     x={60 + i * (barWidth + 20)}
-                    y={height - 155 - (m.Age / maxAge) * barHeight}
+                    y={height - 155 - (m.Age / maxAge) * barMaxHeight}
                     width={barWidth}
                     height={40}
                     style={{ fill: "#FFD8A9" }}
@@ -117,9 +118,9 @@ export default function BarChart(props) {
                 <rect
                   style={{ fill: "#E38B29" }}
                   width={barWidth}
-                  height={(m.Age / maxAge) * barHeight}
+                  height={(m.Age / maxAge) * barMaxHeight}
                   x={60 + i * (barWidth + 20)}
-                  y={height - 100 - (m.Age / maxAge) * barHeight}
+                  y={height - 100 - (m.Age / maxAge) * barMaxHeight}
                 />
                 <text
                   className={styles.text}
