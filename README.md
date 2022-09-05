@@ -1,4 +1,4 @@
-# abc-react
+# abc-react - Andreas Just Petersen
 
 ## Write some code to show and navigate the family tree of Henning
 
