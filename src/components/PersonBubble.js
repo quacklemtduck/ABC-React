@@ -5,7 +5,7 @@ import { ShowPopup } from './PopupInfo';
 function PersonInfo(person){
     return (
         <div>
-            <h3 style={{marginBottom: "0px"}}>{person.Name}</h3>
+            <h3 style={{margin: "0px"}}>{person.Name}</h3>
             <ul style={{paddingLeft: "10px"}}>
                 <li><b>Age: </b>{ person.Age }</li>
                 <li><b>ShoeSize: </b>{ person.ShoeSize }</li>

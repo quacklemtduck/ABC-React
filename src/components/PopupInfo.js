@@ -35,8 +35,8 @@ export function PopupInfoOverlay() {
         <div className={styles.container}>
           <div className={styles.backdrop} onClick={HidePopup}></div>
           <div className={styles.box}>
-            <button onClick={HidePopup} className={styles.closeButton}>X</button>
             {content}
+            <button onClick={HidePopup} className={styles.closeButton}>Close</button>
           </div>
         </div>
       ) : null}
