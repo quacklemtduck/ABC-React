@@ -47,7 +47,7 @@ class App extends React.Component {
     /*
       During the solution of the tasks, please consider handling crappy data.
     */
-    //lars.Children = [henning];
+    lars.Children = [henning];
 
     return (
       <div className="App">

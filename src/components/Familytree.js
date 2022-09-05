@@ -1,9 +1,16 @@
 import React from 'react'
 import styles from './Familytree.module.css'
 import PersonBubble from './PersonBubble';
+import { ShowPopup } from './PopupInfo';
 
 function compareAges(a, b){
     return b.Age - a.Age
+}
+
+function ErrorMessage(){
+    return (
+        <div><h1>An error has occured, check the console for more info.</h1></div>
+    )
 }
 
 
@@ -41,7 +48,15 @@ export default function Familytree(props){
         )
         }else{
             console.error(`Encountered child named ${member.Name} that has either already been rendered or is not part of the tree, ignoring`)
-            return
+            return (
+                <div className={styles.treeSection}>
+                <div className={styles.treeParent}>
+                       <button onClick={() => ShowPopup(ErrorMessage())} className={styles.errorBubble}>
+                            <p className={styles.letter}>!</p>
+                       </button> 
+                       </div>
+                </div>
+            )
         }
     }
 
