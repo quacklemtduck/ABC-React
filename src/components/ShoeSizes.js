@@ -36,12 +36,16 @@ export default function ShoeSizes(props){
             <h4>Average Shoe Size:</h4>
             <h3>{getAverageShoeSize(chosenMembers).toFixed(1)}</h3>
             <table className={styles.table}>
+            <thead>
                 <tr>
                     {chosenMembers.map((m, i) => <th className={styles.th} key={i}> {m.Name} </th>)}
                 </tr>
+                </thead>
+                <tbody>
                 <tr>
                     {chosenMembers.map((m, i) => <td className={styles.td} key={i}> {m.ShoeSize} </td>)}
                 </tr>
+                </tbody>
 
             </table>
         </div>
