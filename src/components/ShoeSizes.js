@@ -33,7 +33,17 @@ export default function ShoeSizes(props){
                 <button className={[styles.toggle, styles.toggleRight, (chosenGender === 'F') ? styles.selected : ""].join(" ")} onClick={() => setFemale()}>Female</button>
             </div>
 
+            <h4>Average Shoe Size:</h4>
             <h3>{getAverageShoeSize(chosenMembers).toFixed(1)}</h3>
+            <table className={styles.table}>
+                <tr>
+                    {chosenMembers.map((m, i) => <th className={styles.th} key={i}> {m.Name} </th>)}
+                </tr>
+                <tr>
+                    {chosenMembers.map((m, i) => <td className={styles.td} key={i}> {m.ShoeSize} </td>)}
+                </tr>
+
+            </table>
         </div>
     )
 }

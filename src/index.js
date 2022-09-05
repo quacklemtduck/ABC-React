@@ -21,7 +21,7 @@ const bente = {
   Age: 46,
   ShoeSize: 37,
   Gender: "F",
-  Children: [lars, andreas],
+  Children: [lars],
 };
 const viggo = {
   Name: "Viggo",
@@ -38,7 +38,7 @@ const henning = {
   Children: [viggo, bente],
 };
 
-const members = [lars, iben, bente, viggo, henning, andreas];
+const members = [lars, iben, bente, viggo, henning];
 
 class App extends React.Component {
   render() {
